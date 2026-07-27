@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>NAME:PRIYADHARSHINI J</H3>
+<H3>REGISTER NO:212224230210</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>27/07/2026</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,65 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
-
+```
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+data = pd.read_csv("Churn_Modelling.csv")
+data
+data.head()
+X=data.iloc[:,:-1].values
+X
+y=data.iloc[:,-1].values
+y
+data.isnull().sum()
+data.duplicated()
+data.describe()
+data = data.drop(['Surname', 'Geography','Gender'], axis=1)
+data.head()
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(data))
+print(df1)
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+X_train
+X_test
+print("Lenght of X_test ",len(X_test))
+```
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+### Dataset:
+<img width="1287" height="437" alt="image" src="https://github.com/user-attachments/assets/58a01165-41e5-4f37-9753-351a8baee0dc" />
+
+### Displaying first five rows:
+<img width="1258" height="222" alt="image" src="https://github.com/user-attachments/assets/95a05c20-623d-451a-ad60-070138fefeb8" />
+
+### Separating input features and output variables:
+<img width="1562" height="375" alt="image" src="https://github.com/user-attachments/assets/7f769824-e463-4f2d-a75f-ecd84f9ec74d" />
+
+### Checking null values:
+<img width="1442" height="427" alt="image" src="https://github.com/user-attachments/assets/7e5888f4-2636-4f29-bf77-cab52e06f61d" />
+
+### Checking duplicated values:
+<img width="1442" height="367" alt="image" src="https://github.com/user-attachments/assets/0c8ebc99-cc12-43db-856a-9d64f0108332" />
+
+### Displaying Statistical Information:
+<img width="1427" height="468" alt="image" src="https://github.com/user-attachments/assets/9b902e00-fb1f-4c41-9a72-a9f064a6c57b" />
+
+### Removing Categorical Columns:
+<img width="1447" height="392" alt="image" src="https://github.com/user-attachments/assets/3153c821-eac6-496b-a31b-dd901951777a" />
+
+### Normalizing the Dataset Using Min-Max Scaler:
+<img width="1535" height="672" alt="image" src="https://github.com/user-attachments/assets/ce1c1308-5e18-4d51-ac8f-4549eb06a101" />
+
+### Displaying Training Data and Testing Data:
+<img width="1428" height="560" alt="image" src="https://github.com/user-attachments/assets/fb7536a2-4607-402c-8910-fea361aef63b" />
+
+### Displaying the Length of Testing Data:
+<img width="1443" height="157" alt="image" src="https://github.com/user-attachments/assets/e4b5f714-e699-43bf-9188-f2e17ae30855" />
+
+
 
 
 ## RESULT:
